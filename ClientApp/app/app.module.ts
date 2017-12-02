@@ -21,6 +21,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { CounterComponent } from './containers/counter/counter.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
+import { AslTopicComponent } from './containers/topic/asl-topic.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
@@ -44,7 +45,8 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
         UserDetailComponent,
         HomeComponent,
         NotFoundComponent,
-        NgxBootstrapComponent
+        NgxBootstrapComponent,
+        AslTopicComponent
     ],
     imports: [
         CommonModule,
@@ -91,6 +93,17 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
                         { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/' }
                     ]
                 }
+            },
+            {
+              path: 'topic', component: AslTopicComponent,
+              data: {
+                  title: 'Topic',
+                  meta: [{ name: 'description', content: 'This is a Topic Page!' }],
+                  links: [
+                      { rel: 'canonical', href: 'http://blogs.example.com/counter/something' },
+                      { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/counter' }
+                  ]
+              }
             },
             {
                 path: 'counter', component: CounterComponent,

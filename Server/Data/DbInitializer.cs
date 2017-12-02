@@ -11,32 +11,62 @@ namespace AspCoreServer.Data
     {
         public static void Initialize(SpaDbContext context)
         {
+            //context.Database.EnsureDeleted();
+            //context.Database.Migrate();
             context.Database.EnsureCreated();
 
-            if (context.User.Any())
+            //initialize users
+            if (!context.User.Any())
             {
-                return;   // DB has been seeded
+              var users = new User[]
+              {
+                new User(){Name = "Mark Pieszak"},
+                new User(){Name = "Abrar Jahin"},
+                new User(){Name = "hakonamatata"},
+                new User(){Name = "LiverpoolOwen"},
+                new User(){Name = "Ketrex"},
+                new User(){Name = "markwhitfeld"},
+                new User(){Name = "daveo1001"},
+                new User(){Name = "paonath"},
+                new User(){Name = "nalex095"},
+                new User(){Name = "ORuban"},
+                new User(){Name = "Gaulomatic"}
+              };
+
+              foreach (User s in users)
+              {
+                  context.User.Add(s);
+              }
+              context.SaveChanges();
+
             }
-            var users = new User[]
+
+            if (context.Leaf.Any()){
+              return;
+            }
+
+            var leaves = new Leaf[]
             {
-               new User(){Name = "Mark Pieszak"},
-               new User(){Name = "Abrar Jahin"},
-               new User(){Name = "hakonamatata"},
-               new User(){Name = "LiverpoolOwen"},
-               new User(){Name = "Ketrex"},
-               new User(){Name = "markwhitfeld"},
-               new User(){Name = "daveo1001"},
-               new User(){Name = "paonath"},
-               new User(){Name = "nalex095"},
-               new User(){Name = "ORuban"},
-               new User(){Name = "Gaulomatic"}
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Anant"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Appleseed"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Konotree"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Asitchanges"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Qrisp"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "TalkForChange"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "XavierSingh"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Framework"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Graph"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Platform"},
+              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Network"}
             };
 
-            foreach (User s in users)
+            foreach (Leaf l in leaves)
             {
-                context.User.Add(s);
+                context.Leaf.Add(l);
             }
             context.SaveChanges();
+
+
         }
     }
 }
