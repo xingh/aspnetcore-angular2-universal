@@ -1,4 +1,4 @@
-﻿
+
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
@@ -18,19 +18,13 @@
  import 'core-js/es6/map';
  import 'core-js/es6/set';
 
+ /** */
+ import 'reflect-metadata';
+
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
-
-// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 /** Evergreen browsers require these. **/
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 
-/**
- * Date, currency, decimal and percent pipes.
- * Needed for: All but Chrome, Firefox, Edge, IE11 and Safari 10
- */
-// import 'intl';  // Run `npm install --save intl`.
-
-import './rx-imports';

@@ -41,32 +41,6 @@ namespace AspCoreServer.Data
 
             }
 
-            if (context.Leaf.Any()){
-              return;
-            }
-
-            var leaves = new Leaf[]
-            {
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Anant"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Appleseed"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Konotree"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Asitchanges"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Qrisp"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "TalkForChange"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "XavierSingh"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Framework"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Graph"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Platform"},
-              new Leaf(){ItemPath="http://www.anant.co", ItemName = "Network"}
-            };
-
-            foreach (Leaf l in leaves)
-            {
-                context.Leaf.Add(l);
-            }
-            context.SaveChanges();
-
-
         }
     }
 }
